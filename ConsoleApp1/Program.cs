@@ -36,3 +36,33 @@ int[] wczytajLiczbyDoTablicy(int ileLiczb)
 }
 int[] tablicaWczytana = wczytajLiczbyDoTablicy(6);
 wypiszTablice(tablicaWczytana);
+
+List<int> WylosowanieLiczbBezPowtorzen(int ileLiczb)
+
+{
+    List<int> listaLiczbLosowych = new List<int>();
+
+    Random random = new Random();
+    for (int i = 0; i < ileLiczb; i++) {
+        int liczba = random.Next(1, 10);
+        while (listaLiczbLosowych.Contains(liczba))
+        {
+            listaLiczbLosowych.Add(liczba);
+        }
+    }
+    return listaLiczbLosowych;
+}
+void wypiszListe(List<int> listaLiczb)
+{
+
+    Console.WriteLine();
+    Console.WriteLine("Lista: ");
+
+
+    for (int i = 0; i < listaLiczb.Count ; i++)
+    {
+        Console.WriteLine(listaLiczb[i] + ", ");
+    }
+}
+List<int> wylosowane = WylosowanieLiczbBezPowtorzen(7);
+wypiszListe(wylosowane);
